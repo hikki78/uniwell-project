@@ -1,6 +1,4 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
-
-## Guide how to make a fullstack nextjs project with supabase
+# Guide how to make this fullstack nextjs project with supabase and react query and web workers
 
 1. Install nextjs and name the project 
 
