@@ -1,36 +1,50 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-## Getting Started
+## Guide how to make a fullstack nextjs project with supabase
 
-First, run the development server:
+1. Install nextjs and name the project 
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npx create-next-app@latest
+```
+choose the name and then choose "YES" to use typescript, tailwind and app router, and "NO" to the rest. 
+
+2. Now let's start with working on the Authentication. 
+
+a. Install prisma for the auth files (refer to https://authjs.dev/)
+
+```bash
+npm install @prisma/client @auth/prisma-adapter
+npm install prisma --save-dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+b. Install next auth
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+npm install next-auth
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+c. Now create a new "lib" folder in the root directory and create a new file called "auth.ts" and "db.ts"
 
-## Learn More
+```bash
+mkdir lib
+touch lib/auth.ts
+touch lib/db.ts
+```
 
-To learn more about Next.js, take a look at the following resources:
+d. Now we need a new "prisma" folder in the root directory and create a new file called "schema.prisma" to define the database schema. But we just need to initialise prisma client and that will automatically create the "prisma" folder and the "schema.prisma" file.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+npx prisma init
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+e. Copy the code from "db.ts". And after that make a api folder in the app directory, inside the api folder make a auth folder and then make a [...nextauth] folder and inside that make a "route.ts" file.
 
-## Deploy on Vercel
+```bash
+mkdir app/api/auth
+touch app/api/auth/route.ts
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+f. Copy the auth.ts file and also make the docker-compose.yml file to run the database, and then copy the dockker compose file, maybe also try running that for testing purposes on your local machine.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+g. Now lets write the auth.ts code, , make sure to download all the dependencies for the auth.ts file.
